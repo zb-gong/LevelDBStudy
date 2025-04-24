@@ -15,3 +15,18 @@ namespace leveldb {
 -- Also, the forward declaration should match the same namespace.
 * **leveldb/cache.h**
 abstract class is virtual = 0. This is like interface.
+
+* **db_impl.h**
+```
+// db_impl.h
+class DBImpl : public db {
+private:
+    struct Writer; 
+}
+
+// db_impl.c
+struct DBImpl::Writer {
+...
+}
+```
+-- Still, this is the forward declaration of `Writer` that is defined in another file.
